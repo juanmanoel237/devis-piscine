@@ -2,8 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const User = require('./models/User'); // Import du modèle User
-const authRoutes = require('./routes/authRoutes');
-const devisRoutes = require('./routes/devisRoutes');
+const authRoutes = require('./routes/auth');
 
 dotenv.config();
 
@@ -37,7 +36,6 @@ const createAdmin = async () => {
 createAdmin();
 
 app.use('/api/auth', authRoutes);
-app.use('/api/devis', devisRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
